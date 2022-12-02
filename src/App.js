@@ -3,8 +3,8 @@ import { Admin, Resource, ListGuesser, EditGuesser, List, TextInput ,CustomRoute
 // import { useDispatch } from 'react-redux';
 import {Routes,Route} from 'react-router'
 import PostIcon from '@mui/icons-material/Book';
-import jsonServerProvider from 'ra-data-json-server';
-import simpleRestProvider from 'ra-data-simple-rest';
+// import jsonServerProvider from 'ra-data-json-server';
+// import simpleRestProvider from 'ra-data-simple-rest';
 import drfProvider from 'ra-data-django-rest-framework';
 
 import {G7thEdit, G7thList} from './g7th/G7thListList'
@@ -13,7 +13,7 @@ import { MyLayout } from './layout';
 import {CreateStock} from './general/Views'
 import { FileUpload } from "./general/FileUpload";
 import { MarginChange, MarginChangeAll } from "./g7th/MarginUpdate";
-import { OrcaList } from "./orca/Views";
+// import { OrcaList } from "./orca/Views";
 import { GeneralEdit, GeneralList } from "./general/Views";
 
 // const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
@@ -37,7 +37,7 @@ const App = () => {
               <Route path="/margin-update-single/:id" element={<MarginChange/>} />
               <Route path="/margin-update" element={<MarginChangeAll/>} />
             </CustomRoutes>
-          <Resource name="orca/stock" list={OrcaList} options={{label: "Orca Prices"}} icon={PostIcon} />
+          {/* <Resource name="orca/stock" list={OrcaList} options={{label: "Orca Prices"}} icon={PostIcon} /> */}
           <Resource name="general/stock" list={GeneralList} edit={GeneralEdit} options={{label: "Quick Calculation"}} icon={PostIcon} />
               
       </Admin>
