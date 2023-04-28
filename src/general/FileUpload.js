@@ -27,9 +27,9 @@ export const FileUpload = () => {
     maxFiles={3}
     // allowFileTypeValidation={true}
     // acceptedFileTypes={'.csv'}
-    server="http://localhost:8000/stock/general/upload-stock/"
-    instantUpload={false}
-    labelIdle='Drag & Drop your csv file with the new stock or <span class="filepond--label-action">Browse</span>'
+    server="http://192.168.1.63:8000/stock/general/upload-stock/"
+    // instantUpload={false}
+    labelIdle='Drag & Drop your import file with the new stock or <span class="filepond--label-action">Browse</span>'
     />
     </div>
     )

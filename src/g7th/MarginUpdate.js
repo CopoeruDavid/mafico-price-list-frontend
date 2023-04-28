@@ -58,6 +58,8 @@ export const MarginChange = ({record,...props}) => {
 
 )}
 
+
+
 export const MarginChangeAll = ({record,...props}) => {
 
     // const postDefaultValue = () => ({costs: 0.7, margin: 15, dealer_multiplier: 2 });
