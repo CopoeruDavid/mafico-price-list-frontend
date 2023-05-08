@@ -68,7 +68,7 @@ export const GenerateWebsiteFeed = () => {
     //   saveAs("http://192.168.1.63:8000/stock/general/generateWebProducts");
       setLoadingOn(false);
       setLoading(false);
-      window.location.href = "/#/general/stock";
+      window.location.href = "/pricelist-frontend/stock";
       window.location.reload(false);
     
     };

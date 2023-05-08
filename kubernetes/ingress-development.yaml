@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: pricelist-system
+  labels:
+    app: ingress
+  annotations:
+    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
+    # nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /pricelist-frontend
+        pathType: Prefix
+        backend:
+          service:
+            name: react-app
+            port:
+              number: 3000
+      - path: /pricelist-backend
+        pathType: Prefix
+        backend:
+          service:
+            name: django-app
+            port:
+              number: 8000

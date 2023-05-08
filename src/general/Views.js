@@ -489,7 +489,7 @@ const ListActions = () => (
     <Button
       type="file"
       onClick={() => {
-        window.location.href = "/#/add-stock-csv";
+        window.location.href = "/pricelist-frontend/add-stock-csv";
       }}
       label="Upload file with products"
     >
@@ -510,7 +510,7 @@ const ListActions = () => (
     <Button
       type="file"
       onClick={() => {
-        window.location.href = "/#/add-stock";
+        window.location.href = "/pricelist-frontend/add-stock";
       }}
       label="Add new item"
     >
@@ -519,7 +519,7 @@ const ListActions = () => (
     <Button
       type="file"
       onClick={() => {
-        window.location.href = "/#/margin-update/";
+        window.location.href = "/pricelist-frontend/margin-update/";
       }}
       label="Modify margins"
     >
@@ -577,11 +577,11 @@ export const CreateStock = () => {
       payload.append(String(prop), data[prop]);
       // console.log(data[prop])
     }
-    fetch("http://192.168.1.63:8000s/stock/general/stock/", {
+    fetch("http://192.168.1.63:8000/pricelist-backend/stock/", {
       method: "post",
       body: payload,
     }).then(() => {
-      window.location.href = "/#/general/stock";
+      window.location.href = "/pricelist-frontend";
       window.location.reload(false);
     });
   };
@@ -655,9 +655,6 @@ export const CreateStock = () => {
 };
 
 export const GeneralList = () => {
-  // let data = fetch('http://127.0.0.1:8000/stock/general/check').then((response) => response.json())
-  // .then((data) => console.log(data));
-  // console.log(data)
   return (
     <List actions={<ListActions />} filters={postFilters}>
       <Datagrid>
