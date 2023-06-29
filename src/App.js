@@ -46,7 +46,7 @@ const App = () => {
       // </Admin>
       <BrowserRouter>
       <Routes>
-        {/* <Route index element={<h1>Maybe try "/pricelist"</h1>} /> */}
+        <Route index element={<h1>Maybe try adding "/pricelist-frontend" in the url</h1>} />
           
         <Route path="/pricelist-frontend/*" element={<AdminDashboard />} />
         

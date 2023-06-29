@@ -72,12 +72,12 @@ const MissingProducts = () => {
     setLoading(true);
     setOpen(false);
     setLoadingOn(true);
-    fetch("http://192.168.1.63:8000/stock/general/checkProducts/", {
+    fetch("http://192.168.1.63:8000/pricelist-backend/checkProducts/", {
       method: "get",
     }).then(() => {
       setLoadingOn(false);
       setLoading(false);
-      window.location.href = "/#/general/stock";
+      window.location.href = "/pricelist-frontend/stock";
       window.location.reload(false);
     });
   };
@@ -92,12 +92,12 @@ const MissingProducts = () => {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle>
-          <img
+          {/* <img
             src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/hourglass-not-done_23f3.png"
             width="30"
             height="30"
             style={{ marginBottom: -5 }}
-          ></img>
+          ></img> */}
           {" You will be redirected when the job is finished "}
         </DialogTitle>
         <DialogContent>
@@ -169,12 +169,12 @@ const CheckEOL = () => {
     setLoading(true);
     setOpen(false);
     setLoadingOn(true);
-    fetch("http://192.168.1.63:8000/stock/general/checkEOL/", {
+    fetch("http://192.168.1.63:8000/pricelist-backend/checkEOL/", {
       method: "get",
     }).then(() => {
       setLoadingOn(false);
       setLoading(false);
-      window.location.href = "/#/general/stock";
+      window.location.href = "/pricelist-frontend/stock";
       window.location.reload(false);
     });
   };
@@ -189,12 +189,12 @@ const CheckEOL = () => {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle>
-          <img
+          {/* <img
             src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/hourglass-not-done_23f3.png"
             width="30"
             height="30"
             style={{ marginBottom: -5 }}
-          ></img>
+          ></img> */}
           {" You will be redirected when the job is finished "}
         </DialogTitle>
         <DialogContent>
@@ -258,12 +258,12 @@ const SyncSnelstart = () => {
     setLoading(true);
     setOpen(false);
     setLoadingOn(true);
-    fetch("http://192.168.1.63:8000/stock/general/syncSnel/", {
+    fetch("http://192.168.1.63:8000/pricelist-backend/syncSnel/", {
       method: "get",
     }).then(() => {
       setLoadingOn(false);
       setLoading(false);
-      window.location.href = "/#/general/stock";
+      window.location.href = "/pricelist-frontend/stock";
       window.location.reload(false);
     });
   };
@@ -278,12 +278,12 @@ const SyncSnelstart = () => {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle>
-          <img
+          {/* <img
             src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/hourglass-not-done_23f3.png"
             width="30"
             height="30"
             style={{ marginBottom: -5 }}
-          ></img>
+          ></img> */}
           {" You will be redirected when the job is finished "}
         </DialogTitle>
         <DialogContent>
@@ -443,46 +443,43 @@ const ProductStatus = (props) => {
 };
 
 const downloadWebsiteFeed = () => {
-  saveAs("http://192.168.1.63:8000/stock/general/getWebProducts", "Webiste Products Feed.csv");
+  saveAs("http://192.168.1.63:8000/pricelist-backend/getWebProducts", "Webiste Products Feed.csv");
 };
 
 const downloadPrice = () => {
-  saveAs("http://192.168.1.63:8000/stock/general/export", "Price_Dealer.xlsx");
+  saveAs("http://192.168.1.63:8000/pricelist-backend/export", "Price_Dealer.xlsx");
 };
 
 const downloadSnel = () => {
-  saveAs("http://192.168.1.63:8000/stock/general/snelstart", "SnelStart.xlsx");
+  saveAs("http://192.168.1.63:8000/pricelist-backend/snelstart", "SnelStart.xlsx");
 };
 
 const downloadSnelNewProducts = () => {
-  saveAs("http://192.168.1.63:8000/stock/general/snelStartNewProd", "SnelStartNewProducts.xlsx");
+  saveAs("http://192.168.1.63:8000/pricelist-backend/snelStartNewProd", "SnelStartNewProducts.xlsx");
 };
 
-//   const MyButton = () => {
-//     const record = useRecordContext();
-//     const handleClick = () => {
-//         console.log(record.id);
-//         // <MarginChange/>
-//         window.location.href='/#/margin-update-single/' + record.id;
-//     };
-//     return <Button
-//     type= "file"
-//     onClick={() => {handleClick() }}
-//     label="Margin"
-//   >
-//     <SavingsIcon/>
-//   </Button>
-//   }
+const downloadTemplateFile = () => {
+  saveAs("http://192.168.1.63:8000/pricelist-backend/generateTemplate", "TemplateFile.xlsx");
+};
 
 const ListActions = () => (
   <TopToolbar>
     <GenerateWebsiteFeed />
-    <Button
+    {/* <Button
       type="file"
       onClick={() => {
         downloadWebsiteFeed();
       }}
       label="Download Webiste Feed"
+    >
+     <ShoppingCartCheckoutOutlinedIcon />
+    </Button>  */}
+    <Button
+      type="file"
+      onClick={() => {
+        downloadTemplateFile();
+      }}
+      label="Download Template File"
     >
      <ShoppingCartCheckoutOutlinedIcon />
     </Button> 
@@ -507,7 +504,7 @@ const ListActions = () => (
      <ShoppingCartCheckoutOutlinedIcon />
     </Button> 
     <CheckEOL />
-    <Button
+    {/* <Button
       type="file"
       onClick={() => {
         window.location.href = "/pricelist-frontend/add-stock";
@@ -515,7 +512,7 @@ const ListActions = () => (
       label="Add new item"
     >
       <AddBusinessIcon />
-    </Button>
+    </Button> */}
     <Button
       type="file"
       onClick={() => {
@@ -565,17 +562,11 @@ export const CreateStock = () => {
     dealer_margin: 0.8,
   });
 
-  // const handleSubmit = (event) => {
-  // event.preventDefault();
-  // alert(`Your entered data: ${id}, ${article_number}, ${supplier_code}, ${brand}, ${product_description}`);
-  // }
-
   const postSave = (data) => {
     console.log(data);
     let payload = new FormData();
     for (let prop in data) {
       payload.append(String(prop), data[prop]);
-      // console.log(data[prop])
     }
     fetch("http://192.168.1.63:8000/pricelist-backend/stock/", {
       method: "post",
@@ -705,14 +696,6 @@ export const GeneralList = () => {
           textAlign="left"
         />
         <EditButton />
-        {/* <Button
-              // type= "file"
-              onClick={() => { }}
-              label="Margin"
-          >
-              <SavingsIcon/>
-          </Button> */}
-        {/* <MyButton/> */}
       </Datagrid>
     </List>
   );

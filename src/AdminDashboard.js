@@ -14,7 +14,7 @@ import { GeneralEdit, GeneralList } from "./general/Views";
 // const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 // const dataProvider = simpleRestProvider('http://127.0.0.1:8000');
 // const dataProviderG7th = drfProvider("http://192.168.1.63:8000/stock");
-const dataProviderG7th = drfProvider("http://localhost:8000/pricelist-backend");
+const dataProviderG7th = drfProvider("http://192.168.1.63:8000/pricelist-backend");
 
 const postFilters = [
     <TextInput label="Search" source="q" alwaysOn />,
