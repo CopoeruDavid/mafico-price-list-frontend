@@ -11,12 +11,20 @@ import drfProvider from 'ra-data-django-rest-framework';
 import {G7thEdit, G7thList} from './g7th/G7thListList'
 import { PostEdit } from "./g7th/FileUpload";
 import { MyLayout } from './layout';
-import {CreateStock} from './general/Views'
-import { FileUpload } from "./general/FileUpload";
+import {CreateStock} from './pricelist/Views'
+import { FileUpload } from "./pricelist/FileUpload";
 import { MarginChange, MarginChangeAll } from "./g7th/MarginUpdate";
 // import { OrcaList } from "./orca/Views";
-import { GeneralEdit, GeneralList } from "./general/Views";
+import { GeneralEdit, GeneralList } from "./pricelist/Views";
 import AdminDashboard from "./AdminDashboard";
+import ProductsDashboard from "./ProductsDashboard";
+import BasicSignIn from "./components/Login";
+import './assets/scss/themes.scss';
+import CoverSignIn from "./components/CoverSignIn";
+import BasicSignUp from "./components/Register";
+
+
+
 
 // const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 // const dataProvider = simpleRestProvider('http://127.0.0.1:8000');
@@ -30,30 +38,35 @@ const postFilters = [
 const App = () => {
   // const dispatch = useDispatch();
   // dispatch(setAutomaticRefresh(false))
-  return(
-      // <Admin dataProvider={dataProviderG7th} title="Admin Dashboard" layout={MyLayout}  options={{label: "Stock Mafico"}}>
-      //     {/* <Resource name="g7th/stock" list={G7thList} create ={MarginChange} edit={G7thEdit} options={{label: "G7th Prices"}} icon={PostIcon} edit2={MarginChange}/> */}
-      //       <CustomRoutes>
-      //         <Route path="/add-stock" element={<CreateStock />} />
-      //         <Route path="/add-stock-csv" element={<FileUpload />} />
-      //         <Route path="/margin-update-single/:id" element={<MarginChange/>} />
-      //         <Route path="/margin-update" element={<MarginChangeAll/>} />
-      //         {/* <Route path="/generate-website-feed" element={} /> */}
-      //       </CustomRoutes>
-      //     {/* <Resource name="orca/stock" list={OrcaList} options={{label: "Orca Prices"}} icon={PostIcon} /> */}
-      //     <Resource name="general/stock" list={GeneralList} edit={GeneralEdit} options={{label: "Quick Calculation"}} icon={PostIcon} />
-              
-      // </Admin>
-      <BrowserRouter>
-      <Routes>
-        <Route index element={<h1>Maybe try adding "/pricelist-frontend" in the url</h1>} />
+  // if (sessionStorage.getItem('token') != null){
+    return(
+        <BrowserRouter>
+        <Routes>
+          <Route index element={<h1>Maybe try adding "/internal" in the url</h1>} />
+          <Route path="/internal/*" element={<AdminDashboard />} />
+          <Route path="/products/*" element={<ProductsDashboard />} />
+          <Route path="/login" element={<BasicSignIn />} />
+          <Route path="/register" element={<BasicSignUp />} />
           
-        <Route path="/pricelist-frontend/*" element={<AdminDashboard />} />
-        
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
 
-    // <AdminDashboard />
-);}
+      // <AdminDashboard />
+  );
+// }
+  // else {
+//     return(
+//       <BrowserRouter>
+//       <Routes>
+//         {/* <Route index element={<h1>Maybe try adding "/pricelist-frontend" in the url</h1>} />
+//         <Route path="/internal/*" element={<AdminDashboard />} />
+//         <Route path="/products/*" element={<ProductsDashboard />} /> */}
+//         <Route path="/*" element={<BasicSignIn />} />
+//       </Routes>
+//     </BrowserRouter>
+// );
+//   }
+
+}
 
 export default App;
